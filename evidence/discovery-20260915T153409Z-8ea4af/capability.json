@@ -1,0 +1,507 @@
+{
+  "schema_version": "1.0.0",
+  "id": "membercore.lookup_savings_balance",
+  "version": 1,
+  "name": "Lookup Savings Balance",
+  "description": "look up member 12345 and read their current savings balance",
+  "base_app_id": "membercore-4.2",
+  "entry_url": "http://127.0.0.1:5051/",
+  "surface_kind": "legacy_web",
+  "inputs": [
+    {
+      "name": "operator_id",
+      "type": "string",
+      "required": true,
+      "description": "Value supplied for operator_id.",
+      "example": null,
+      "pattern": null,
+      "sensitive": true
+    },
+    {
+      "name": "operator_passcode",
+      "type": "string",
+      "required": true,
+      "description": "Value supplied for operator_passcode.",
+      "example": null,
+      "pattern": null,
+      "sensitive": true
+    },
+    {
+      "name": "member_id",
+      "type": "string",
+      "required": true,
+      "description": "Value supplied for member_id.",
+      "example": "12345",
+      "pattern": null,
+      "sensitive": false
+    }
+  ],
+  "outputs": [
+    {
+      "name": "savings_balance",
+      "type": "money",
+      "description": "Value displayed next to 'Savings'.",
+      "source": {
+        "frame_path": [
+          "workspace"
+        ],
+        "candidates": [
+          {
+            "strategy": "label_proximity",
+            "params": {
+              "label": "Savings",
+              "control": "cell"
+            },
+            "rationale": "Value sits in the table cell adjacent to its label. Same strategy used for form fields, so outputs inherit the same stability properties and drift signal as actions."
+          }
+        ],
+        "description": "the value labelled 'Savings'"
+      },
+      "extract_pattern": "\\$?([\\d,]+\\.\\d{2})",
+      "required": true
+    }
+  ],
+  "steps": [
+    {
+      "id": "step_00",
+      "intent": "Open the application entry point.",
+      "action": "navigate",
+      "target": null,
+      "value": "http://127.0.0.1:5051/",
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_01",
+      "intent": "Enter operator ID",
+      "action": "type",
+      "target": {
+        "frame_path": [],
+        "candidates": [
+          {
+            "strategy": "label_proximity",
+            "params": {
+              "label": "Operator ID",
+              "control": "textbox"
+            },
+            "rationale": "Control in the table cell adjacent to its label text. Legacy table forms have no <label for>, but the visual association is what the app authors maintain and what operators rely on."
+          },
+          {
+            "strategy": "structural",
+            "params": {
+              "region": "OPERATOR SIGN ON",
+              "control": "textbox",
+              "index": 0
+            },
+            "rationale": "Nth textbox within the 'OPERATOR SIGN ON' section. Positional, so it breaks if a field is inserted -- kept only as a late fallback."
+          },
+          {
+            "strategy": "coordinates",
+            "params": {
+              "x": 614,
+              "y": 123,
+              "viewport": [
+                1280,
+                900
+              ]
+            },
+            "rationale": "Screenshot-space centre point. Least durable rung -- breaks on any layout shift -- but retained because it is the only strategy that works on a surface exposing no queryable tree at all."
+          }
+        ],
+        "description": "the textbox named 'Operator ID'"
+      },
+      "value": "{{operator_id}}",
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_02",
+      "intent": "Enter passcode",
+      "action": "type",
+      "target": {
+        "frame_path": [],
+        "candidates": [
+          {
+            "strategy": "label_proximity",
+            "params": {
+              "label": "Passcode",
+              "control": "textbox"
+            },
+            "rationale": "Control in the table cell adjacent to its label text. Legacy table forms have no <label for>, but the visual association is what the app authors maintain and what operators rely on."
+          },
+          {
+            "strategy": "structural",
+            "params": {
+              "region": "OPERATOR SIGN ON",
+              "control": "textbox",
+              "index": 0
+            },
+            "rationale": "Nth textbox within the 'OPERATOR SIGN ON' section. Positional, so it breaks if a field is inserted -- kept only as a late fallback."
+          },
+          {
+            "strategy": "coordinates",
+            "params": {
+              "x": 614,
+              "y": 149,
+              "viewport": [
+                1280,
+                900
+              ]
+            },
+            "rationale": "Screenshot-space centre point. Least durable rung -- breaks on any layout shift -- but retained because it is the only strategy that works on a surface exposing no queryable tree at all."
+          }
+        ],
+        "description": "the textbox named 'Passcode'"
+      },
+      "value": "pass",
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_03",
+      "intent": "Sign on to system",
+      "action": "click",
+      "target": {
+        "frame_path": [],
+        "candidates": [
+          {
+            "strategy": "accessible_name",
+            "params": {
+              "role": "button",
+              "name": "Sign On"
+            },
+            "rationale": "Role plus accessible name. Most durable tier: survives markup rewrites and has a direct equivalent in desktop accessibility APIs (UIA/AX)."
+          },
+          {
+            "strategy": "text",
+            "params": {
+              "role": "button",
+              "text": "Sign On"
+            },
+            "rationale": "Visible text match. Breaks if the label is reworded or re-branded."
+          },
+          {
+            "strategy": "structural",
+            "params": {
+              "region": "OPERATOR SIGN ON",
+              "control": "button",
+              "index": 0
+            },
+            "rationale": "Nth button within the 'OPERATOR SIGN ON' section. Positional, so it breaks if a field is inserted -- kept only as a late fallback."
+          },
+          {
+            "strategy": "coordinates",
+            "params": {
+              "x": 648,
+              "y": 176,
+              "viewport": [
+                1280,
+                900
+              ]
+            },
+            "rationale": "Screenshot-space centre point. Least durable rung -- breaks on any layout shift -- but retained because it is the only strategy that works on a surface exposing no queryable tree at all."
+          }
+        ],
+        "description": "the button named 'Sign On'"
+      },
+      "value": null,
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_04",
+      "intent": "Enter member ID",
+      "action": "type",
+      "target": {
+        "frame_path": [
+          "workspace"
+        ],
+        "candidates": [
+          {
+            "strategy": "label_proximity",
+            "params": {
+              "label": "Member ID",
+              "control": "textbox"
+            },
+            "rationale": "Control in the table cell adjacent to its label text. Legacy table forms have no <label for>, but the visual association is what the app authors maintain and what operators rely on."
+          },
+          {
+            "strategy": "coordinates",
+            "params": {
+              "x": 162,
+              "y": 43,
+              "viewport": [
+                1280,
+                900
+              ]
+            },
+            "rationale": "Screenshot-space centre point. Least durable rung -- breaks on any layout shift -- but retained because it is the only strategy that works on a surface exposing no queryable tree at all."
+          }
+        ],
+        "description": "the textbox named 'Member ID'"
+      },
+      "value": "{{member_id}}",
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_05",
+      "intent": "Search for member",
+      "action": "click",
+      "target": {
+        "frame_path": [
+          "workspace"
+        ],
+        "candidates": [
+          {
+            "strategy": "accessible_name",
+            "params": {
+              "role": "button",
+              "name": "Search"
+            },
+            "rationale": "Role plus accessible name. Most durable tier: survives markup rewrites and has a direct equivalent in desktop accessibility APIs (UIA/AX)."
+          },
+          {
+            "strategy": "text",
+            "params": {
+              "role": "button",
+              "text": "Search"
+            },
+            "rationale": "Visible text match. Breaks if the label is reworded or re-branded."
+          },
+          {
+            "strategy": "coordinates",
+            "params": {
+              "x": 242,
+              "y": 43,
+              "viewport": [
+                1280,
+                900
+              ]
+            },
+            "rationale": "Screenshot-space centre point. Least durable rung -- breaks on any layout shift -- but retained because it is the only strategy that works on a surface exposing no queryable tree at all."
+          }
+        ],
+        "description": "the button named 'Search'"
+      },
+      "value": null,
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    },
+    {
+      "id": "step_06",
+      "intent": "Read savings balance",
+      "action": "read",
+      "target": {
+        "frame_path": [
+          "workspace"
+        ],
+        "candidates": [
+          {
+            "strategy": "label_proximity",
+            "params": {
+              "label": "Savings",
+              "control": "cell"
+            },
+            "rationale": "Value sits in the table cell adjacent to its label. Same strategy used for form fields, so outputs inherit the same stability properties and drift signal as actions."
+          }
+        ],
+        "description": "the value labelled 'Savings'"
+      },
+      "value": null,
+      "risk": "safe",
+      "expect": null,
+      "timeout_ms": 10000,
+      "conditions": []
+    }
+  ],
+  "checkpoint": {
+    "kind": "text_present",
+    "frame_path": [
+      "workspace"
+    ],
+    "params": {
+      "text": "Savings $4,182.55"
+    },
+    "description": "Model-verified success marker: 'Savings $4,182.55'"
+  },
+  "conditions": [
+    {
+      "id": "session_timeout",
+      "description": "Session expired mid-flow. Listed first: it can appear on any screen and must not be mistaken for a business outcome.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "SESSION EXPIRED"
+        },
+        "description": ""
+      },
+      "classify": "hard_failure",
+      "response": "escalate",
+      "outcome_code": null,
+      "recovery_steps": [],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    },
+    {
+      "id": "app_error",
+      "description": "Application returned an error page. Not recoverable by retrying the same step; a human needs to see it.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "SYSTEM ERROR"
+        },
+        "description": ""
+      },
+      "classify": "hard_failure",
+      "response": "fail",
+      "outcome_code": null,
+      "recovery_steps": [],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    },
+    {
+      "id": "member_not_found",
+      "description": "No record for the supplied member ID. A legitimate answer the caller needs, NOT a failure -- conflating these is the classic design mistake.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "No member record found"
+        },
+        "description": ""
+      },
+      "classify": "business_outcome",
+      "response": "return_outcome",
+      "outcome_code": "MEMBER_NOT_FOUND",
+      "recovery_steps": [],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    },
+    {
+      "id": "permission_denied",
+      "description": "Record is restricted and needs supervisor elevation. A business outcome the caller must handle, and the natural escalation trigger.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "Permission denied"
+        },
+        "description": ""
+      },
+      "classify": "business_outcome",
+      "response": "return_outcome",
+      "outcome_code": "PERMISSION_DENIED",
+      "recovery_steps": [],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    },
+    {
+      "id": "validation_error",
+      "description": "The app rejected our input. Returned to the caller so it can correct and re-invoke, rather than retried blindly with the same bad value.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "is required"
+        },
+        "description": ""
+      },
+      "classify": "business_outcome",
+      "response": "return_outcome",
+      "outcome_code": "VALIDATION_ERROR",
+      "recovery_steps": [],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    },
+    {
+      "id": "compliance_interstitial",
+      "description": "Known interstitial between us and the target screen. Recoverable: acknowledge it and carry on. Recovery is an explicit, reviewable step rather than a blind 'click whatever button is present'.",
+      "detect": {
+        "kind": "text_present",
+        "frame_path": [
+          "workspace"
+        ],
+        "params": {
+          "text": "REVIEW NOTICE"
+        },
+        "description": ""
+      },
+      "classify": "recoverable",
+      "response": "dismiss_and_continue",
+      "outcome_code": null,
+      "recovery_steps": [
+        {
+          "id": "recover_ack_notice",
+          "intent": "Acknowledge the compliance notice to reach the account summary.",
+          "action": "click",
+          "target": {
+            "frame_path": [
+              "workspace"
+            ],
+            "candidates": [
+              {
+                "strategy": "accessible_name",
+                "params": {
+                  "role": "button",
+                  "name": "Acknowledge and Continue"
+                },
+                "rationale": "Button text is the accessible name on this surface."
+              }
+            ],
+            "description": "the 'Acknowledge and Continue' button"
+          },
+          "value": null,
+          "risk": "safe",
+          "expect": null,
+          "timeout_ms": 10000,
+          "conditions": []
+        }
+      ],
+      "max_retries": 2,
+      "backoff_ms": 1500
+    }
+  ],
+  "approval": "draft",
+  "stability": {
+    "total_replays": 0,
+    "successes": 0,
+    "business_outcomes": 0,
+    "hard_failures": 0,
+    "last_replayed_at": null,
+    "last_resolved_tiers": {}
+  },
+  "provenance": {
+    "recorded_at": "2026-09-15T15:34:53.056686Z",
+    "recorded_by": "llm_discovery",
+    "model": "openai/gpt-oss-120b",
+    "discovery_run_id": "discovery-20260915T153409Z-8ea4af",
+    "base_app_id": "membercore-4.2",
+    "variant_id": null,
+    "notes": "Locator ladders synthesized by the recorder and verified against the live surface at record time. The model named controls; it did not author selectors."
+  }
+}

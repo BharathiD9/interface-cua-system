@@ -1,0 +1,17 @@
+<html><head><title>MEMBERCORE 4.2 - Sign On</title>{% include "base_style.html" %}</head>
+<body>
+<table width="420" align="center" cellpadding="0" cellspacing="0" style="margin-top:80px;border:2px solid #003366">
+<tr><td class="hdr" colspan="2">OPERATOR SIGN ON</td></tr>
+<tr><td colspan="2"><table width="100%" cellpadding="6"><tr><td>
+  {% if error %}<div class="err">{{ error }}</div>{% endif %}
+  <form method="post" action="/login">
+  <table cellpadding="4">
+    <tr><td class="td1">Operator ID</td><td class="td2"><input type="text" name="operator" size="20"></td></tr>
+    <tr><td class="td1">Passcode</td><td class="td2"><input type="password" name="passcode" size="20"></td></tr>
+    <tr><td colspan="2" align="right"><input type="submit" value="Sign On"></td></tr>
+  </table>
+  </form>
+  <div style="color:#666666">Demo surface. Any non-empty operator ID and passcode are accepted. No real credentials.</div>
+</td></tr></table></td></tr>
+</table>
+</body></html>

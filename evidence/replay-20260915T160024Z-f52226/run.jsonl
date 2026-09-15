@@ -1,0 +1,14 @@
+{"seq": 1, "t_ms": 0, "event": "run_started", "kind": "replay", "run_id": "replay-20260915T160024Z-f52226"}
+{"seq": 2, "t_ms": 240, "event": "replay_started", "capability": "membercore.lookup_savings_balance", "version": 1, "approval": "draft", "attended": true}
+{"seq": 3, "t_ms": 251, "event": "step", "step": "step_00", "action": "navigate", "intent": "Open the application entry point.", "ok": true, "tier": null, "strategy": null, "ms": 11}
+{"seq": 4, "t_ms": 524, "event": "step", "step": "step_01", "action": "type", "intent": "Enter operator ID", "ok": true, "tier": 2, "strategy": "label_proximity", "ms": 267}
+{"seq": 5, "t_ms": 810, "event": "step", "step": "step_02", "action": "type", "intent": "Enter passcode", "ok": true, "tier": 2, "strategy": "label_proximity", "ms": 277}
+{"seq": 6, "t_ms": 1135, "event": "step", "step": "step_03", "action": "click", "intent": "Sign on to system", "ok": true, "tier": 1, "strategy": "accessible_name", "ms": 312}
+{"seq": 7, "t_ms": 1433, "event": "step", "step": "step_04", "action": "type", "intent": "Enter member ID", "ok": true, "tier": 2, "strategy": "label_proximity", "ms": 278}
+{"seq": 8, "t_ms": 1753, "event": "step", "step": "step_05", "action": "click", "intent": "Search for member", "ok": true, "tier": 1, "strategy": "accessible_name", "ms": 300}
+{"seq": 9, "t_ms": 1767, "event": "condition_detected", "condition": "compliance_interstitial", "classify": "recoverable", "response": "dismiss_and_continue", "step": "step_05"}
+{"seq": 10, "t_ms": 1767, "event": "recovery_step", "condition": "compliance_interstitial", "step": "recover_ack_notice"}
+{"seq": 11, "t_ms": 2061, "event": "recovery_satisfied_expectation", "condition": "compliance_interstitial", "step": "step_05", "note": "post-condition held after recovery; advancing"}
+{"seq": 12, "t_ms": 2323, "event": "step", "step": "step_06", "action": "read", "intent": "Read savings balance", "ok": true, "tier": 2, "strategy": "label_proximity", "ms": 262}
+{"seq": 13, "t_ms": 2346, "event": "output_extracted", "name": "savings_balance", "value": "760.00"}
+{"seq": 14, "t_ms": 2346, "event": "replay_finished", "status": "success", "capability": "membercore.lookup_savings_balance@v1", "duration_ms": 2106, "outputs": {"savings_balance": "760.00"}, "steps": [{"id": "step_00", "tier": null, "strategy": null, "ms": 11, "retries": 0}, {"id": "step_01", "tier": 2, "strategy": "label_proximity", "ms": 267, "retries": 0}, {"id": "step_02", "tier": 2, "strategy": "label_proximity", "ms": 277, "retries": 0}, {"id": "step_03", "tier": 1, "strategy": "accessible_name", "ms": 312, "retries": 0}, {"id": "step_04", "tier": 2, "strategy": "label_proximity", "ms": 278, "retries": 0}, {"id": "step_05", "tier": 1, "strategy": "accessible_name", "ms": 300, "retries": 0}, {"id": "step_06", "tier": 2, "strategy": "label_proximity", "ms": 262, "retries": 0}]}

@@ -1,0 +1,63 @@
+{
+  "status": "failure",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 3582,
+  "error": {
+    "step": "step_05",
+    "expected": "click on \"the button named 'Search'\"",
+    "observed": "could not resolve \"the button named 'Search'\"; tried: accessible_name: matched 0; text: matched 0; coordinates: unsupported",
+    "evidence": "evidence/replay-20260915T154431Z-a0f5ed",
+    "screenshot": "evidence/replay-20260915T154431Z-a0f5ed/011-step_05-unresolved.png"
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 454,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 285,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 264,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 1506,
+      "retries": 0
+    },
+    {
+      "id": "step_04",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 283,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 315,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": null,
+      "strategy": null,
+      "ms": 13,
+      "retries": 1
+    }
+  ]
+}

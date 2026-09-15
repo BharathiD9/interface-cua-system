@@ -1,0 +1,28 @@
+{"seq": 1, "t_ms": 0, "event": "run_started", "kind": "discovery", "run_id": "discovery-20260914T124615Z-2240bd"}
+{"seq": 2, "t_ms": 1943, "event": "goal", "goal": "look up member 12345 and read their current savings balance", "entry_url": "http://127.0.0.1:5051/", "inputs": ["operator_id", "operator_passcode", "member_id"]}
+{"seq": 3, "t_ms": 2205, "event": "observed", "url": "http://127.0.0.1:5051/", "controls": 3, "screenshot": "evidence/discovery-20260914T124615Z-2240bd/002-start.png"}
+{"seq": 4, "t_ms": 2205, "event": "decision", "turn": 0, "tool": "type_text", "args": {"frame": "", "name": "Operator ID", "text": "op-[REDACTED:OPERATOR_PASSCODE]", "intent": "Sign on to reach the member screens."}}
+{"seq": 5, "t_ms": 2247, "event": "ladder", "step": "step_01", "control": "Operator ID", "kept": ["label_proximity", "structural", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)"], "best_tier": 2}
+{"seq": 6, "t_ms": 2521, "event": "acted", "step": "step_01", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 7, "t_ms": 2599, "event": "observed", "turn": 0, "url": "http://127.0.0.1:5051/", "controls": 3}
+{"seq": 8, "t_ms": 2599, "event": "decision", "turn": 1, "tool": "type_text", "args": {"frame": "", "name": "Passcode", "text": "[REDACTED:OPERATOR_PASSCODE]-passcode", "intent": "Complete the sign-on form."}}
+{"seq": 9, "t_ms": 2611, "event": "ladder", "step": "step_02", "control": "Passcode", "kept": ["label_proximity", "structural", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)"], "best_tier": 2}
+{"seq": 10, "t_ms": 2875, "event": "acted", "step": "step_02", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 11, "t_ms": 2934, "event": "observed", "turn": 1, "url": "http://127.0.0.1:5051/", "controls": 3}
+{"seq": 12, "t_ms": 2934, "event": "decision", "turn": 2, "tool": "click", "args": {"frame": "", "role": "button", "name": "Sign On", "intent": "Submit the sign-on form."}}
+{"seq": 13, "t_ms": 2943, "event": "ladder", "step": "step_03", "control": "Sign On", "kept": ["accessible_name", "text", "structural", "coordinates"], "pruned": [], "best_tier": 1}
+{"seq": 14, "t_ms": 3589, "event": "acted", "step": "step_03", "tool": "click", "risk": "safe", "tier": 1}
+{"seq": 15, "t_ms": 3733, "event": "observed", "turn": 2, "url": "http://127.0.0.1:5051/", "controls": 2}
+{"seq": 16, "t_ms": 3734, "event": "decision", "turn": 3, "tool": "type_text", "args": {"frame": "workspace", "name": "Member ID", "text": "12345", "intent": "Enter the member number to look up."}}
+{"seq": 17, "t_ms": 3770, "event": "ladder", "step": "step_04", "control": "Member ID", "kept": ["label_proximity", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)", "structural (structural: matched 0)"], "best_tier": 2}
+{"seq": 18, "t_ms": 4042, "event": "acted", "step": "step_04", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 19, "t_ms": 4114, "event": "observed", "turn": 3, "url": "http://127.0.0.1:5051/", "controls": 2}
+{"seq": 20, "t_ms": 4115, "event": "decision", "turn": 4, "tool": "click", "args": {"frame": "workspace", "role": "button", "name": "Search", "intent": "Run the member inquiry."}}
+{"seq": 21, "t_ms": 4123, "event": "ladder", "step": "step_05", "control": "Search", "kept": ["accessible_name", "text", "coordinates"], "pruned": ["structural (structural: matched 0)"], "best_tier": 1}
+{"seq": 22, "t_ms": 4440, "event": "acted", "step": "step_05", "tool": "click", "risk": "safe", "tier": 1}
+{"seq": 23, "t_ms": 4518, "event": "observed", "turn": 4, "url": "http://127.0.0.1:5051/", "controls": 1}
+{"seq": 24, "t_ms": 4519, "event": "decision", "turn": 5, "tool": "read_value", "args": {"frame": "workspace", "label": "Savings", "output_name": "savings_balance", "intent": "Record the savings balance as the output."}}
+{"seq": 25, "t_ms": 4534, "event": "read", "label": "Savings", "name": "savings_balance", "value": "$4,182.55"}
+{"seq": 26, "t_ms": 4605, "event": "observed", "turn": 5, "url": "http://127.0.0.1:5051/", "controls": 1}
+{"seq": 27, "t_ms": 4606, "event": "decision", "turn": 6, "tool": "done", "args": {"summary": "Reached the account summary and read the balance.", "success_text": "MEMBER ACCOUNT SUMMARY"}}
+{"seq": 28, "t_ms": 4672, "event": "done", "summary": "Reached the account summary and read the balance.", "checkpoint": {"text": "MEMBER ACCOUNT SUMMARY"}}

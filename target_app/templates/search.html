@@ -1,0 +1,17 @@
+<html><head>{% include "base_style.html" %}</head><body>
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td class="hdr">MEMBER INQUIRY</td></tr></table>
+<table cellpadding="8"><tr><td>
+{% if error %}<div class="err">{{ error }}</div>{% endif %}
+{% if notfound %}<div class="err">No member record found for ID {{ notfound }}.</div>{% endif %}
+<form method="post" action="/content/search">
+<table cellpadding="4" cellspacing="0">
+  <tr>
+    <td class="td1">Member ID</td>
+    <td class="td2"><input type="text" name="memberid" size="14" maxlength="10"></td>
+    <td><input type="submit" value="Search"></td>
+  </tr>
+</table>
+</form>
+<div style="margin-top:14px;color:#666666">Enter a member number to retrieve the account summary.</div>
+</td></tr></table>
+</body></html>

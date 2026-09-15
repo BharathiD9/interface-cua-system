@@ -1,0 +1,29 @@
+{"seq": 1, "t_ms": 0, "event": "run_started", "kind": "discovery", "run_id": "discovery-20260915T155746Z-5940c7"}
+{"seq": 2, "t_ms": 980, "event": "goal", "goal": "look up member 12345 and read their current savings balance", "entry_url": "http://127.0.0.1:5051/", "inputs": ["operator_id", "operator_passcode", "member_id"]}
+{"seq": 3, "t_ms": 1053, "event": "observed", "url": "http://127.0.0.1:5051/", "controls": 3, "screenshot": "evidence/discovery-20260915T155746Z-5940c7/002-start.png"}
+{"seq": 4, "t_ms": 2759, "event": "decision", "turn": 0, "tool": "type_text", "args": {"frame": "", "intent": "Enter operator ID", "name": "Operator ID", "text": "[REDACTED:OPERATOR_ID]"}}
+{"seq": 5, "t_ms": 2787, "event": "ladder", "step": "step_01", "control": "Operator ID", "kept": ["label_proximity", "structural", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)"], "best_tier": 2}
+{"seq": 6, "t_ms": 3067, "event": "acted", "step": "step_01", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 7, "t_ms": 3111, "event": "observed", "turn": 0, "url": "http://127.0.0.1:5051/", "controls": 3}
+{"seq": 8, "t_ms": 3460, "event": "decision", "turn": 1, "tool": "type_text", "args": {"frame": "", "intent": "Enter passcode", "name": "Passcode", "text": "pass"}}
+{"seq": 9, "t_ms": 3472, "event": "ladder", "step": "step_02", "control": "Passcode", "kept": ["label_proximity", "structural", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)"], "best_tier": 2}
+{"seq": 10, "t_ms": 3761, "event": "acted", "step": "step_02", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 11, "t_ms": 3808, "event": "observed", "turn": 1, "url": "http://127.0.0.1:5051/", "controls": 3}
+{"seq": 12, "t_ms": 4282, "event": "decision", "turn": 2, "tool": "click", "args": {"frame": "", "intent": "Sign on to system", "name": "Sign On", "role": "button"}}
+{"seq": 13, "t_ms": 4296, "event": "ladder", "step": "step_03", "control": "Sign On", "kept": ["accessible_name", "text", "structural", "coordinates"], "pruned": [], "best_tier": 1}
+{"seq": 14, "t_ms": 4639, "event": "acted", "step": "step_03", "tool": "click", "risk": "safe", "tier": 1}
+{"seq": 15, "t_ms": 4671, "event": "observed", "turn": 2, "url": "http://127.0.0.1:5051/", "controls": 2}
+{"seq": 16, "t_ms": 5203, "event": "decision", "turn": 3, "tool": "type_text", "args": {"frame": "workspace", "intent": "Enter member ID", "name": "Member ID", "text": "12345"}}
+{"seq": 17, "t_ms": 5228, "event": "ladder", "step": "step_04", "control": "Member ID", "kept": ["label_proximity", "coordinates"], "pruned": ["accessible_name (accessible_name: matched 0)", "text (text: matched 0)", "structural (structural: matched 0)"], "best_tier": 2}
+{"seq": 18, "t_ms": 5495, "event": "acted", "step": "step_04", "tool": "type_text", "risk": "safe", "tier": 2}
+{"seq": 19, "t_ms": 5543, "event": "observed", "turn": 3, "url": "http://127.0.0.1:5051/", "controls": 2}
+{"seq": 20, "t_ms": 6017, "event": "decision", "turn": 4, "tool": "click", "args": {"frame": "workspace", "intent": "Search for member", "name": "Search", "role": "button"}}
+{"seq": 21, "t_ms": 6027, "event": "ladder", "step": "step_05", "control": "Search", "kept": ["accessible_name", "text", "coordinates"], "pruned": ["structural (structural: matched 0)"], "best_tier": 1}
+{"seq": 22, "t_ms": 6351, "event": "acted", "step": "step_05", "tool": "click", "risk": "safe", "tier": 1}
+{"seq": 23, "t_ms": 6391, "event": "observed", "turn": 4, "url": "http://127.0.0.1:5051/", "controls": 1}
+{"seq": 24, "t_ms": 6941, "event": "decision", "turn": 5, "tool": "read_value", "args": {"frame": "workspace", "intent": "Read savings balance", "label": "Savings", "output_name": "savings_balance"}}
+{"seq": 25, "t_ms": 6959, "event": "read", "label": "Savings", "name": "savings_balance", "value": "$4,182.55"}
+{"seq": 26, "t_ms": 7009, "event": "observed", "turn": 5, "url": "http://127.0.0.1:5051/", "controls": 1}
+{"seq": 27, "t_ms": 31416, "event": "decision", "turn": 6, "tool": "done", "args": {"success_text": "Savings $4,182.55", "summary": "Retrieved the current savings balance for member 12345."}}
+{"seq": 28, "t_ms": 31418, "event": "checkpoint_rejected", "proposed": "Savings $4,182.55", "reason": "contains run-specific values; would only hold for this input", "offending": ["$4,182.55"], "substituted": "DEPOSIT ACCOUNTS"}
+{"seq": 29, "t_ms": 31481, "event": "done", "summary": "Retrieved the current savings balance for member 12345.", "checkpoint": {"text": "DEPOSIT ACCOUNTS"}}

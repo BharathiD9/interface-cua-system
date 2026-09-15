@@ -1,0 +1,21 @@
+<html><head>{% include "base_style.html" %}</head><body>
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td class="hdr">OPEN SUB-ACCOUNT</td></tr></table>
+<table cellpadding="8"><tr><td>
+{% if errors %}<div class="err">{% for e in errors %}{{ e }}<br>{% endfor %}</div>{% endif %}
+<div>Member {{ member.member_id }} &mdash; {{ member.name }}</div><br>
+<form method="post" action="/content/member/{{ member.member_id }}/subaccount">
+<table cellpadding="4" cellspacing="0">
+  <tr><td class="td1">Nickname</td><td class="td2"><input type="text" name="nickname" size="24"></td></tr>
+  <tr><td class="td1">Account Type</td><td class="td2">
+    <select name="accttype">
+      <option value="">-- select --</option>
+      <option value="SAV">Regular Savings</option>
+      <option value="MMK">Money Market</option>
+      <option value="CD">Certificate</option>
+    </select></td></tr>
+  <tr><td class="td1">Opening Deposit</td><td class="td2"><input type="text" name="deposit" size="12"></td></tr>
+  <tr><td colspan="2" align="right"><input type="submit" value="Submit Application"></td></tr>
+</table>
+</form>
+</td></tr></table>
+</body></html>

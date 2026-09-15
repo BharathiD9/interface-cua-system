@@ -1,0 +1,39 @@
+{
+  "status": "escalated",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 944,
+  "escalation": {
+    "id": "esc-76ff2a49",
+    "evidence": "evidence/replay-20260915T154325Z-7cca64"
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 268,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 278,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 320,
+      "retries": 0
+    }
+  ]
+}

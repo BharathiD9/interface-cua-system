@@ -1,0 +1,15 @@
+{
+  "id": "esc-76ff2a49",
+  "capability": "membercore.lookup_savings_balance",
+  "version": 1,
+  "step": "step_03",
+  "intent": "Submit the sign-on form.",
+  "reason": "condition session_timeout: Session expired mid-flow. Listed first: it can appear on any screen and must not be mistaken for a business outcome.",
+  "screenshot": "evidence/replay-20260915T154325Z-7cca64/007-escalation.png",
+  "session": "http://127.0.0.1:9222",
+  "evidence": "evidence/replay-20260915T154325Z-7cca64",
+  "state": "intervention_requested",
+  "created_at": "2026-09-15T15:43:26+00:00",
+  "human_actions": [],
+  "resolution": null
+}

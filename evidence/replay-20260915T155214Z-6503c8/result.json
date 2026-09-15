@@ -1,0 +1,53 @@
+{
+  "status": "business_outcome",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 1668,
+  "outcome": {
+    "code": "MEMBER_NOT_FOUND",
+    "detail": " MEMBERCORE 4.2 Midtown Federal Credit Union Operator session active MEMBERCORE 4.2 Midtown Federal Credit Union Operator session active MEMBER INQUIRY No member record found for ID 99999. Member ID Enter a member number to retrieve the account summary."
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 28,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 285,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 264,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 400,
+      "retries": 0
+    },
+    {
+      "id": "step_04",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 277,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 312,
+      "retries": 0
+    }
+  ]
+}

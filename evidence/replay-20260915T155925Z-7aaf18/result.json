@@ -1,0 +1,56 @@
+{
+  "status": "failure",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 1530,
+  "error": {
+    "step": "step_05",
+    "expected": "no hard-failure condition present",
+    "observed": "app_error: Application returned an error page. Not recoverable by retrying the same step; a human needs to see it.",
+    "evidence": "evidence/replay-20260915T155925Z-7aaf18",
+    "screenshot": "evidence/replay-20260915T155925Z-7aaf18/009-app_error-hard-failure.png"
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 10,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 267,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 274,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 311,
+      "retries": 0
+    },
+    {
+      "id": "step_04",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 271,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 288,
+      "retries": 0
+    }
+  ]
+}

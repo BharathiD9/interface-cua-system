@@ -1,0 +1,66 @@
+{
+  "status": "success",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 2095,
+  "outputs": {
+    "savings_balance": "760.00"
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 11,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 268,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 279,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 311,
+      "retries": 0
+    },
+    {
+      "id": "step_04",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 273,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 298,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 6,
+      "strategy": "coordinates",
+      "ms": 20,
+      "retries": 1
+    },
+    {
+      "id": "step_06",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 253,
+      "retries": 0
+    }
+  ]
+}

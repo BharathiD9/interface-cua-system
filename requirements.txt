@@ -1,0 +1,5 @@
+anthropic>=0.40.0          # only needed for --planner anthropic
+playwright>=1.45.0
+pydantic>=2.7.0
+flask>=3.0.0
+openai>=1.40.0              # Groq speaks the OpenAI protocol

@@ -1,0 +1,4 @@
+{"seq": 1, "t_ms": 0, "event": "run_started", "kind": "discovery", "run_id": "discovery-20260915T153057Z-9594d2"}
+{"seq": 2, "t_ms": 3765, "event": "goal", "goal": "look up member 12345 and read their current savings balance", "entry_url": "http://127.0.0.1:5051/", "inputs": ["operator_id", "operator_passcode", "member_id"]}
+{"seq": 3, "t_ms": 4047, "event": "observed", "url": "http://127.0.0.1:5051/", "controls": 3, "screenshot": "evidence/discovery-20260915T153057Z-9594d2/002-start.png"}
+{"seq": 4, "t_ms": 4580, "event": "planner_error", "error": "NotFoundError: Error code: 404 - {'error': {'message': 'The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.', 'type': 'invalid_request_error', 'code': 'model_not_found'}}"}

@@ -1,0 +1,56 @@
+{
+  "status": "failure",
+  "capability": "membercore.lookup_savings_balance@v1",
+  "duration_ms": 11976,
+  "error": {
+    "step": "step_05",
+    "expected": "text_present({'text': 'MEMBER ACCOUNT SUMMARY'})",
+    "observed": "frame[workspace] text: MEMBER INQUIRY Member ID must be numeric. Member ID Enter a member number to retrieve the account summary.",
+    "evidence": "evidence/replay-20260915T154719Z-0ee8f6",
+    "screenshot": "evidence/replay-20260915T154719Z-0ee8f6/008-step_05-expect-failed.png"
+  },
+  "steps": [
+    {
+      "id": "step_00",
+      "tier": null,
+      "strategy": null,
+      "ms": 37,
+      "retries": 0
+    },
+    {
+      "id": "step_01",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 290,
+      "retries": 0
+    },
+    {
+      "id": "step_02",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 265,
+      "retries": 0
+    },
+    {
+      "id": "step_03",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 381,
+      "retries": 0
+    },
+    {
+      "id": "step_04",
+      "tier": 2,
+      "strategy": "label_proximity",
+      "ms": 284,
+      "retries": 0
+    },
+    {
+      "id": "step_05",
+      "tier": 1,
+      "strategy": "accessible_name",
+      "ms": 318,
+      "retries": 0
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<html><head>{% include "base_style.html" %}</head><body>
+<table width="100%" cellpadding="0" cellspacing="0"><tr><td class="hdr">REVIEW NOTICE</td></tr></table>
+<table cellpadding="8"><tr><td>
+<div class="warn">This member has an unread compliance notice on file. Acknowledge to continue to the account summary.</div>
+<form method="post" action="/content/member/{{ member.member_id }}/ack">
+<input type="submit" value="Acknowledge and Continue">
+</form>
+</td></tr></table>
+</body></html>
