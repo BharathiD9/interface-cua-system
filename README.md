@@ -104,3 +104,5 @@ the logs, or the model. Replay supplies credentials at invocation time.
 
 `/evidence/` holds one folder per run: a JSONL event log, screenshots, and the result contract.
 Discovery folders also contain the emitted capability.
+
+A short screen recording of a discovery run followed by a deterministic replay: [demo.mov]
